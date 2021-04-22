@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header class="row justify-content-between align-items-center">
+        <div class="col-md-4">
+          <div style="display: flex; justify-content: center;">
+            <p class="fs-4" style="margin-top: 4vh;">PDF</p>
+          </div>
+        </div>
+        <div class="col-md-4 ms-auto">
+          <div style="display: flex; justify-content: center;">
+            <button mat-button (click)="downloadFile()" [disabled]="isLoading">
+              <mat-icon>cloud_download</mat-icon>
+              Descargar
+            </button>
+            <button mat-button (click)="returnPage()">
+              <mat-icon>undo</mat-icon>
+              Salir
+            </button>
+          </div>
+        </div>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <div style="display: flex; justify-content: center;" *ngIf="isLoading">
+          <mat-spinner diameter="50"></mat-spinner>
+        </div>
+        <div *ngIf="!isLoading">
+          <pdf-viewer [src]="pdfFile" [original-size]="false" [render-text]="true" style="display: block; height: 100vh;"></pdf-viewer>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

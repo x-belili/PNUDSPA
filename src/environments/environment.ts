@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'http://172.16.61.229:8080/sisecgen-commons-ws/',
+  keyCaptcha: '6Ld3fqwaAAAAAAcyW0hA_k5R1MMJkri_zw05xOpO'
 };
 
 /*

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row align-items-start" style="min-height: 80vh;">
+    <div class="col"></div>
+    <div class="col align-self-center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <img src="./assets/images/logo_2.png" alt="Logo" height="80" class="d-inline-block align-text-top"
+            style="margin-top: 5vh; margin-bottom: 5vh;">
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form" [formGroup]="aFormGroup" (ngSubmit)="onSubmit()" id="ngForm" novalidate>
+            <mat-form-field class="example-full-width">
+              <mat-label>Código de Documento</mat-label>
+              <input type="text" autocomplete="off" formControlName="codeDocument" matInput>
+              <mat-icon matSuffix>assignment</mat-icon>
+              <mat-error *ngIf="getControl.codeDocument.hasError('required')">
+                Este campo es <strong>obligatorio</strong>
+              </mat-error>
+            </mat-form-field>
+            <div style="display: flex; justify-content: center;">
+              <ngx-recaptcha2 #captchaElem [siteKey]="key" formControlName="recaptcha" (resolved)="resolved($event)"
+                hl="es"></ngx-recaptcha2>
+            </div>
+          </form>
+        </mat-card-content>
+        <hr>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" type="submit" form="ngForm" [disabled]="!disableBtn">Aceptar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

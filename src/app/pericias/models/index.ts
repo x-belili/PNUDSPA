@@ -1,0 +1,1 @@
+export { Pericia, Archivo } from './pericia';
